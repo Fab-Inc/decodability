@@ -1,5 +1,6 @@
 import pandas as pd
 import pytest
+
 from decodability import rowwise
 from decodability.kiswahili.aggregators import (
     aggregate_scores_kenya_tusome,

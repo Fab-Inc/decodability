@@ -11,6 +11,7 @@ from __future__ import annotations
 from functools import partial
 
 import pandas as pd
+
 from decodability import annotate_words
 from decodability.annotate import Aggregation
 from decodability.kiswahili import (

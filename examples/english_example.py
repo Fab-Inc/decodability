@@ -13,6 +13,7 @@ from functools import partial
 from typing import Any
 
 import pandas as pd
+
 from decodability import annotate_words, mean_score, weighted_average
 
 TEXT = "The cat sat on a thin mat."

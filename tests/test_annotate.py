@@ -1,6 +1,7 @@
 from functools import partial
 
 import pytest
+
 from decodability import annotate_words, mean_score, weighted_average
 
 
