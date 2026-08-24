@@ -12,3 +12,52 @@ dependencies = [
   "primerpro",
   "pydantic>=2.13.4",
 ]
+
+[dependency-groups]
+dev = [
+  "mdformat>=1.0.0",
+  "mdformat-gfm>=1.0.0",
+  "mypy>=1.11.0",
+  "pandas-stubs>=2.0.0",
+  "pre-commit>=3.6.0",
+  "pre-commit-hooks>=4.5.0",
+  "pytest>=8.0.0",
+  "pytest-cov>=5.0.0",
+  "ruff>=0.6.0",
+]
+
+[tool.uv]
+required-version = ">=0.11.8"
+# Ignore brand new dependency versions, for cybersecurity and robustness
+exclude-newer = "7 days"
+
+[tool.uv.sources]
+# primerpro is not on PyPI; it lives in its own IDinsight repo. Pinning to a commit
+# would be more reproducible, but `main` matches how the monorepo tracks its own git
+# dependencies. Bump with `uv lock --upgrade-package primerpro`.
+primerpro = { git = "https://github.com/IDinsight/primerpro.git", rev = "main" }
+
+[tool.mypy]
+python_version = "3.13"
+files = ["src"]
+# Strict enough to be useful without demanding annotations on every test helper.
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+no_implicit_optional = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.pytest.ini_options]
+addopts = [
+  "--import-mode=importlib",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP"]
