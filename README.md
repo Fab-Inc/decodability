@@ -27,16 +27,16 @@ any specific language's rules:
 
 Language-specific modules go under `decodability/<language>/`.
 
-| Module             | Responsibility                                                                                                          |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| `definitions.py`   | Language orthography definitions and any external decoding-tool setup                                                   |
-| `student_knowledge.py`        | The student-knowledge pydantic model                                                                        |
-| `segment.py`       | Language-specific word segmentation |
-| `analyse.py`| Language-specific word analyses based on a student knowledge profile for decodability |
-| `extract_words.py` | Language-specific word extractor.                                                                                       |
-| `scorers.py`       | (Deprecated) Per-word scoring functions mapping `(word, student_knowledge)` to a score in range [0.0, 1.0]              |
-| `aggregators.py`   | (Deprecated) Functions that combine a word's per-measure scores into one final score.                                   |
-| `__init__.py`      | Exposes the `SCORING_METHODS` and `AGGREGATIONS` registries (see [Config Shape](#config-shape)) and the public exports. |
+| Module                 | Responsibility                                                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `definitions.py`       | Language orthography definitions and any external decoding-tool setup                                                   |
+| `student_knowledge.py` | The student-knowledge pydantic model                                                                                    |
+| `segment.py`           | Language-specific word segmentation                                                                                     |
+| `analyse.py`           | Language-specific word analyses based on a student knowledge profile for decodability                                   |
+| `extract_words.py`     | Language-specific word extractor.                                                                                       |
+| `scorers.py`           | (Deprecated) Per-word scoring functions mapping `(word, student_knowledge)` to a score in range [0.0, 1.0]              |
+| `aggregators.py`       | (Deprecated) Functions that combine a word's per-measure scores into one final score.                                   |
+| `__init__.py`          | Exposes the `SCORING_METHODS` and `AGGREGATIONS` registries (see [Config Shape](#config-shape)) and the public exports. |
 
 The dependency structure is as follows:
 
@@ -49,7 +49,6 @@ flowchart
   segment.py --> definitions.py
   extract_words.py --> definitions.py
 ```
-
 
 ## Kiswahili Scoring
 
