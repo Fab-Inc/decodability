@@ -10,10 +10,12 @@ from decodability.kiswahili import (
 DECODABILITY_REGISTRY = {
     "sw": {
         "name": "Kiswahili",
-        "scoring_methods": SCORING_METHODS,
-        "aggregations": AGGREGATIONS,
         "extract_words": extract_words_kiswahili,
         "student_knowledge_model": KiswahiliStudentKnowledge,
+        # DEPRECATED: will be replayed by analysis functions
+        # in the future
+        "scoring_methods": SCORING_METHODS,
+        "aggregations": AGGREGATIONS,
     }
 }
 
