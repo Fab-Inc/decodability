@@ -10,7 +10,7 @@ from decodability.kiswahili.definitions import (
     ClusterPattern,
 )
 from decodability.kiswahili.extract_words import extract_words_kiswahili
-from decodability.kiswahili.models import KiswahiliStudentKnowledge
+from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 from decodability.kiswahili.scorers import (
     score_known_clusters_and_patterns_kiswahili,
     score_known_graphemes_kiswahili,

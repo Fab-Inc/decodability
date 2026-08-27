@@ -12,7 +12,7 @@ from pydantic import BaseModel, ConfigDict
 from decodability.kiswahili.definitions import (
     VALID_GRAPHEMES,
 )
-from decodability.kiswahili.models import KiswahiliStudentKnowledge
+from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 from decodability.kiswahili.segment import Span, decompose_word, find_cluster_spans
 
 
