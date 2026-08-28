@@ -3,8 +3,8 @@
 import pytest
 
 from decodability.kiswahili import (
-    KiswahiliWordAnalysis,
     KiswahiliStudentKnowledge,
+    KiswahiliWordAnalysis,
     aggregate_scores_kenya_tusome,
     analyse_word_kiswahili,
     assess_decodability_kenya_tusome,
@@ -94,7 +94,8 @@ class TestFindKiswahili:
         ]
 
     def test_every_span_indexes_back_into_the_word(self, knowledge):
-        word = "Mchanganyikox"  # word with unknwon graphemes, clusters and an invalid grapheme
+        word = "Mchanganyikox"
+        # word with unknwon graphemes, clusters and an invalid grapheme
         analysis = analyse_word_kiswahili(word, knowledge)
 
         all_spans = (
@@ -135,22 +136,27 @@ class TestKenyaTusomeRule:
 
     def test_invalid_graphemes_alone_make_a_word_non_decodable(self):
         """A rule that only checked untaught graphemes would miss this."""
-        analysis = KiswahiliWordAnalysis(word="x", invalid_graphemes=[Span(text="x", start=0, end=1)])
+        analysis = KiswahiliWordAnalysis(
+            word="x", invalid_graphemes=[Span(text="x", start=0, end=1)]
+        )
 
         assert assess_decodability_kenya_tusome(analysis) is False
 
     def test_a_student_taught_nothing_decodes_no_real_word(self, no_knowledge):
         words = extract_words_kiswahili("Tulisikia mayowe tukiwa sebuleni")
 
-        decodability_verdicts = [is_decodable_kenya_tusome(word, no_knowledge) for word in words]
+        decodability_verdicts = [
+            is_decodable_kenya_tusome(word, no_knowledge) for word in words
+        ]
 
         assert decodability_verdicts == [False] * len(words)
 
-    def test_the_empty_word_has_no_obstacles_and_is_decodable(self, no_knowledge, knowledge):
+    def test_the_empty_word_has_no_obstacles_and_is_decodable(
+        self, no_knowledge, knowledge
+    ):
         """Deliberate: the empty word cannot be blocked by anything."""
         assert is_decodable_kenya_tusome("", no_knowledge) is True
         assert is_decodable_kenya_tusome("", knowledge) is True
-
 
 
 class TestAnalysisModel:

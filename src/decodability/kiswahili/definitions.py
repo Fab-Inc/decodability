@@ -2,12 +2,9 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from enum import Enum
-from functools import cached_property
 
 from primerpro import Consonant, GraphemeInventory, Settings, Vowel
-
 
 KISWAHILI_CONSONANT_GPCS = [
     ("b", "b"),

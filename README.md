@@ -44,7 +44,7 @@ The dependency structure is as follows:
 flowchart
   analyse.py --> student_knowledge.py
   analyse.py --> segment.py
-  analyse.py --> definitions.py 
+  analyse.py --> definitions.py
   student_knowledge.py --> definitions.py
   segment.py --> definitions.py
   extract_words.py --> definitions.py

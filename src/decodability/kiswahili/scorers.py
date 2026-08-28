@@ -1,10 +1,8 @@
-from functools import reduce
-
 from decodability.kiswahili.segment import (
     get_clusters,
+    get_grapheme_symbols,
 )
 from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
-from decodability.kiswahili.segment import get_grapheme_symbols
 
 
 def score_known_graphemes_kiswahili(

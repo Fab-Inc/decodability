@@ -10,13 +10,18 @@ from decodability.kiswahili.definitions import (
     ClusterPattern,
 )
 from decodability.kiswahili.extract_words import extract_words_kiswahili
-from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 from decodability.kiswahili.scorers import (
     score_known_clusters_and_patterns_kiswahili,
     score_known_graphemes_kiswahili,
     score_whole_words_kiswahili,
 )
-from decodability.kiswahili.segment import decompose_word, find_cluster_spans, get_clusters, get_grapheme_symbols
+from decodability.kiswahili.segment import (
+    decompose_word,
+    find_cluster_spans,
+    get_clusters,
+    get_grapheme_symbols,
+)
+from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 
 # (word, [(cluster, start_index), ...]) for each expected consonant cluster.
 cluster_outputs = [
@@ -65,7 +70,7 @@ class TestKiswahiliDefinition:
     def test_every_span_indexes_back_into_the_word(self, word):
         """Spans must be usable to slice the original word, casing included."""
         graphemes = decompose_word(word)
-        
+
         grapheme_spans = [grapheme.to_span() for grapheme in graphemes]
         for span in grapheme_spans + find_cluster_spans(graphemes):
             assert word[span.start : span.end] == span.text

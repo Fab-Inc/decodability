@@ -1,8 +1,11 @@
 """Per-word decodability analysis for Kiswahili.
 
-- :func:`analyse_kiswahili_word` analyses a word based on a student knowledge profile, returning a Kiswahili-specific analysis object.
-- :func:`assess_decodability_kenya_tusome` takes the analysis object and returns a boolean indicating decodability.
-- :func:`is_decodable_kenya_tusome` composes the two, taking a word and a student knowledge profile and returning a boolean indicating decodability.
+- :func:`analyse_kiswahili_word` analyses a word based on a student knowledge profile,
+    returning a Kiswahili-specific analysis object.
+- :func:`assess_decodability_kenya_tusome` takes the analysis object and returns a
+    boolean indicating decodability.
+- :func:`is_decodable_kenya_tusome` composes the two, taking a word and a student
+    knowledge profile and returning a boolean indicating decodability.
 """
 
 from __future__ import annotations
@@ -12,8 +15,8 @@ from pydantic import BaseModel, ConfigDict
 from decodability.kiswahili.definitions import (
     VALID_GRAPHEMES,
 )
-from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 from decodability.kiswahili.segment import Span, decompose_word, find_cluster_spans
+from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 
 
 class KiswahiliWordAnalysis(BaseModel):
@@ -64,7 +67,7 @@ def analyse_word_kiswahili(
 
 
 def assess_decodability_kenya_tusome(word_analysis: KiswahiliWordAnalysis) -> bool:
-    """Decide decodability of a word based on the analysis results and the 
+    """Decide decodability of a word based on the analysis results and the
     Kenya Tusome curriculum.
 
     The rule: a known whole word is decodable regardless of anything else; otherwise
@@ -87,7 +90,9 @@ def assess_decodability_kenya_tusome(word_analysis: KiswahiliWordAnalysis) -> bo
     return True
 
 
-def is_decodable_kenya_tusome(word: str, student_knowledge: KiswahiliStudentKnowledge) -> bool:
+def is_decodable_kenya_tusome(
+    word: str, student_knowledge: KiswahiliStudentKnowledge
+) -> bool:
     """Decide decodability of a word based on the Kenya Tusome curriculum.
 
     The rule: a known whole word is decodable regardless of anything else; otherwise

@@ -7,14 +7,14 @@ from decodability.kiswahili.analyse import (
     analyse_word_kiswahili,
     assess_decodability_kenya_tusome,
 )
-from decodability.kiswahili.segment import Span
 from decodability.kiswahili.extract_words import extract_words_kiswahili
-from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 from decodability.kiswahili.scorers import (
     score_known_clusters_and_patterns_kiswahili,
     score_known_graphemes_kiswahili,
     score_whole_words_kiswahili,
 )
+from decodability.kiswahili.segment import Span
+from decodability.kiswahili.student_knowledge import KiswahiliStudentKnowledge
 
 cluster_scorer = score_known_clusters_and_patterns_kiswahili
 SCORING_METHODS = {

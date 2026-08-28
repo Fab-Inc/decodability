@@ -1,7 +1,7 @@
 from functools import cached_property, reduce
 from itertools import chain
 
-from pydantic import BaseModel, field_validator, model_validator, ConfigDict
+from pydantic import BaseModel, ConfigDict, field_validator, model_validator
 
 from decodability.kiswahili.definitions import (
     VALID_CLUSTERS,
@@ -13,6 +13,7 @@ from decodability.kiswahili.segment import get_grapheme_symbols
 
 class KiswahiliStudentKnowledge(BaseModel):
     """Model for Kiswahili student knowledge representation."""
+
     model_config = ConfigDict(frozen=True)
 
     graphemes: set[str] = set()

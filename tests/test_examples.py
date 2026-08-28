@@ -28,7 +28,9 @@ def test_kiswahili_analysis_example_returns_analysis():
 
     nondecodable_word_analyses = namespace["get_nondecodable_word_analyses"]()
     assert nondecodable_word_analyses[0].word == "Tulisikia"
-    assert nondecodable_word_analyses[0].unknown_graphemes == [Span(text="l", start=2, end=3)]
+    assert nondecodable_word_analyses[0].unknown_graphemes == [
+        Span(text="l", start=2, end=3)
+    ]
 
 
 def test_kiswahili_example_builds_dataframe():

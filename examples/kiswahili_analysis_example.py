@@ -8,13 +8,12 @@ Run from the repository root with:
 
 from __future__ import annotations
 
-
 from decodability.kiswahili import (
     KiswahiliStudentKnowledge,
     KiswahiliWordAnalysis,
-    extract_words_kiswahili,
     analyse_word_kiswahili,
     assess_decodability_kenya_tusome,
+    extract_words_kiswahili,
 )
 
 TEXT = """Tulisikia mayowe tukiwa sebuleni. Sote tukatoka.
@@ -54,14 +53,13 @@ STUDENT_KNOWLEDGE = KiswahiliStudentKnowledge.model_validate(
 def get_nondecodable_word_analyses() -> list[KiswahiliWordAnalysis]:
     """Return the analyses of all non-decodable words in the text."""
     words = extract_words_kiswahili(TEXT)
-    analyses = {
-        word: analyse_word_kiswahili(word, STUDENT_KNOWLEDGE) for word in words
-    }
+    analyses = {word: analyse_word_kiswahili(word, STUDENT_KNOWLEDGE) for word in words}
     return [
         analyses[word]
         for word in analyses
         if not assess_decodability_kenya_tusome(analyses[word])
     ]
+
 
 def main() -> None:
     nondecodable_word_analyses = get_nondecodable_word_analyses()
