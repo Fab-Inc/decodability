@@ -39,7 +39,7 @@ class Span(BaseModel):
     @property
     def normalised(self) -> str:
         """Lowercased text, for matching against inventories and student knowledge."""
-        return self.text.casefold()
+        return self.text.lower()
 
 
 class GraphemeSpan(Span):
@@ -53,8 +53,8 @@ class GraphemeSpan(Span):
 
     @property
     def symbol(self) -> str:
-        """The lowercased grapheme symbol."""
-        return self.text.lower()
+        """The lowercased grapheme symbol: an alias of :attr:`normalised`."""
+        return self.normalised
 
 
 def decompose_word(word: str) -> list[GraphemeSpan]:
