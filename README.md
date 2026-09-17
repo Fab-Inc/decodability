@@ -134,4 +134,5 @@ Example JSON-like config:
 
 ## Decodability Checker Web Application
 
-A web application that implements the decodability package can be accessed [here](https://decodability-checker.idinsight.io).
+A web application that implements the decodability package can be accessed
+[here](https://decodability-checker.idinsight.io).
