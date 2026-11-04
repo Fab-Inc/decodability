@@ -1,6 +1,7 @@
 """Tests for English per-word decodability analysis."""
 
 import pytest
+
 from decodability.english import (
     EnglishStudentKnowledge,
     EnglishWordAnalysis,

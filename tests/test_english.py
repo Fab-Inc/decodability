@@ -1,5 +1,6 @@
 import pandas as pd
 import pytest
+
 from decodability import rowwise
 from decodability.english.aggregators import aggregate_scores_ufli_curriculum
 from decodability.english.extract_phonemes import (
